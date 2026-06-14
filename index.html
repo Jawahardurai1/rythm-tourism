@@ -154,7 +154,7 @@ let username=localStorage.getItem("username");
 const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 if(btn){    
 btn.addEventListener("click",()=>{
-    window.location.href="signup.html";
+    window.location.href="Pages/signup.html";
 })
 }
 if(isLoggedIn){
@@ -163,7 +163,7 @@ if(isLoggedIn){
 }
 started.addEventListener("click",()=>
 {
-    window.location.href="login.html"
+    window.location.href="Pages/login.html"
 })
 
 const userSection = document.getElementById("userSection");
