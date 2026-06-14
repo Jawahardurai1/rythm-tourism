@@ -63,7 +63,7 @@ const response=await axios.post("https://tourism-api-5tpw.onrender.com/signup",u
 console.log(response.data);
 localStorage.setItem("isLoggedIn", true);
     localStorage.setItem("username", username);
-    window.location.href="index.html";
+    window.location.href="../index.html";
 alert("Signup successful!");
 
     } catch (error) {
