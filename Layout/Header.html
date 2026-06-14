@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <header id="header">
+        <nav class="flex items-center justify-between p-3 bg-gradient-to-r from-green-600 to-green-900 text-white text-white">
+            <div class="flex  items-center gap-3">
+            <img src="/assets/logo2.png" class="h-15 w-auto object-contain" alt="Rythm Tourism Logo">
+            <h4 class="text-xl font-bold tracking-widest " style="font-family: 'Montserrat', sans-serif;">Rythm Tourism</h4></div>
+            <div class="flex items-center gap-12 text-lg font-serif" >
+           <a class=" px-2 py-1 rounded-lg"href="/">Home</a>
+           <a  href="/destinations.html">Destinations</a>
+           <a href="#service">Services</a>
+           <a href="#contact">Contact</a>
+           <button id="btn" class="bg-green-500 hover:bg-green-600  transition-all duration-300 text-white font-bold py-2 px-4 rounded">
+            Book Now
+           </button>
+           <span id="start" class=" bg-[#ed6618] hover:bg-green-600 text-white cursor-pointer hover:bg-orange-800 transition-all duration-300 py-2 px-2 rounded-2xl">
+             Get started ! </span>
+           <div id="userSection"></div>
+           </div>
+        </nav>
+    </header>
+    
+<script>
+    let btn=document.getElementById("btn");
+    let started=document.getElementById("start")
+let username=localStorage.getItem("username");
+const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+if(btn){    
+btn.addEventListener("click",()=>{
+    window.location.href="signup.html";
+})
+}
+if(isLoggedIn){
+    btn.style.display="none";
+    started.style.display="none";
+}
+started.addEventListener("click",()=>
+{
+    window.location.href="login.html"
+})
+
+const userSection = document.getElementById("userSection");
+if (isLoggedIn) {
+    userSection.innerHTML = `
+        <span id="profilebtn" class="flex items-center gap-3 px-4 py-2">
+            <i class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
+            <span class="text-sm cursor-pointer">${username}</span>`
+
+const profilebutton=document.getElementById("profilebtn");
+ 
+
+ profilebutton.addEventListener("click",(e)=>
+{
+    const logoutbtn=document.createElement("div");
+    logoutbtn.innerHTML=`<button class="absolute top-15 text-sm bg-white text-red-500 hover:bg-gray-100 cursor-pointer rounded-lg p-2 z-10 font-sans right-8">log out</button>`;
+    userSection.append(logoutbtn);
+    logoutbtn.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("username");
+        window.location.href = "index.html";
+    });
+})
+    
+} 
+
+
+</script>
+</body>
+</html>

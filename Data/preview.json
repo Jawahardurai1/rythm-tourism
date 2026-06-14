@@ -1,0 +1,306 @@
+{
+  "previewTrips": [
+    {
+      "destinationId": 1,
+      "title": "Palolem Beach Escape",
+      "gallery": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        "https://images.unsplash.com/photo-1527631746610-bca00a040d60",
+        "https://images.unsplash.com/photo-1500375592092-40eb2168fd21"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & Beach Vibes",
+          "activities": ["Resort Check-in", "Palolem Beach Walk", "Sunset Photography"]
+        },
+        {
+          "day": 2,
+          "title": "Adventure Day",
+          "activities": ["Kayaking", "Boat Ride", "Water Sports"]
+        },
+        {
+          "day": 3,
+          "title": "Explore Goa",
+          "activities": ["Local Market Visit", "Seafood Lunch", "Departure"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 2,
+      "title": "Eiffel Tower",
+      "gallery": [
+        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+        "https://images.unsplash.com/photo-1499856871958-5b9627545d1a",
+        "https://images.unsplash.com/photo-1431274172761-fca41d930114"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Paris",
+          "activities": ["Hotel Check-in", "Paris City Walk", "French Dinner"]
+        },
+        {
+          "day": 2,
+          "title": "Iconic Tour",
+          "activities": ["Eiffel Tower Visit", "Arc de Triomphe", "Night Lights Tour"]
+        },
+        {
+          "day": 3,
+          "title": "Art Day",
+          "activities": ["Louvre Museum", "Street Cafes", "Shopping"]
+        },
+        {
+          "day": 4,
+          "title": "Culture Experience",
+          "activities": ["Seine River Cruise", "Notre Dame Visit", "Photography"]
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "activities": ["Breakfast", "Souvenir Shopping", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 3,
+      "title": "Shibuya Crossing",
+      "gallery": [
+        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf",
+        "https://images.unsplash.com/photo-1526481280695-3c4691f9d124",
+        "https://images.unsplash.com/photo-1513407030348-c983a97b98d8"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Tokyo Arrival",
+          "activities": ["Hotel Check-in", "Shibuya Crossing", "Night Walk"]
+        },
+        {
+          "day": 2,
+          "title": "City Discovery",
+          "activities": ["Tokyo Skytree", "Asakusa Temple", "Street Food"]
+        },
+        {
+          "day": 3,
+          "title": "Cultural Tour",
+          "activities": ["Meiji Shrine", "Harajuku Visit", "Tea Ceremony"]
+        },
+        {
+          "day": 4,
+          "title": "Anime & Tech",
+          "activities": ["Akihabara", "Gaming Zone", "Shopping"]
+        },
+        {
+          "day": 5,
+          "title": "Nature Day",
+          "activities": ["Mount Fuji Tour", "Lake Kawaguchi", "Photography"]
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "activities": ["Breakfast", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 4,
+      "title": "Cocoa Island Resort",
+      "gallery": [
+        "https://images.unsplash.com/photo-1514282401047-d79a71a590e8",
+        "https://images.unsplash.com/photo-1573843981267-be1999ff37cd",
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Island Arrival",
+          "activities": ["Villa Check-in", "Private Beach Relaxation"]
+        },
+        {
+          "day": 2,
+          "title": "Ocean Adventure",
+          "activities": ["Snorkeling", "Scuba Diving", "Marine Tour"]
+        },
+        {
+          "day": 3,
+          "title": "Luxury Day",
+          "activities": ["Spa Session", "Sunset Cruise", "Private Dinner"]
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "activities": ["Breakfast", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 5,
+      "title": "Alleppey Backwaters",
+      "gallery": [
+        "https://images.unsplash.com/photo-1602216056096-3b7c3a2a1c2a",
+        "https://images.unsplash.com/photo-1593693397690-362cb9666fc2",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Houseboat Experience",
+          "activities": ["Check-in", "Houseboat Cruise", "Sunset Relaxation"]
+        },
+        {
+          "day": 2,
+          "title": "Village Discovery",
+          "activities": ["Canoe Ride", "Village Tour", "Kerala Cuisine"]
+        },
+        {
+          "day": 3,
+          "title": "Departure",
+          "activities": ["Morning Cruise", "Checkout"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 6,
+      "title": "Downtown Dubai",
+      "gallery": [
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
+        "https://images.unsplash.com/photo-1526495124232-a04e1849168c",
+        "https://images.unsplash.com/photo-1508057198894-247b23fe5ade"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Dubai",
+          "activities": ["Hotel Check-in", "Dubai Marina Walk"]
+        },
+        {
+          "day": 2,
+          "title": "City Highlights",
+          "activities": ["Burj Khalifa", "Dubai Mall", "Dubai Fountain Show"]
+        },
+        {
+          "day": 3,
+          "title": "Adventure Day",
+          "activities": ["Desert Safari", "Camel Ride", "BBQ Dinner"]
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "activities": ["Souvenir Shopping", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 7,
+      "title": "Seminyak Beach",
+      "gallery": [
+        "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1",
+        "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2",
+        "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Bali",
+          "activities": ["Resort Check-in", "Beach Sunset"]
+        },
+        {
+          "day": 2,
+          "title": "Adventure Day",
+          "activities": ["Surfing", "ATV Ride", "Beach Club"]
+        },
+        {
+          "day": 3,
+          "title": "Culture Tour",
+          "activities": ["Temple Visit", "Traditional Dance", "Local Market"]
+        },
+        {
+          "day": 4,
+          "title": "Nature Day",
+          "activities": ["Rice Terraces", "Waterfall Visit", "Photography"]
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "activities": ["Shopping", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 8,
+      "title": "Interlaken Valley",
+      "gallery": [
+        "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Switzerland",
+          "activities": ["Hotel Check-in", "Town Walk"]
+        },
+        {
+          "day": 2,
+          "title": "Mountain Excursion",
+          "activities": ["Jungfraujoch Visit", "Snow Activities"]
+        },
+        {
+          "day": 3,
+          "title": "Adventure Sports",
+          "activities": ["Paragliding", "Photography Tour"]
+        },
+        {
+          "day": 4,
+          "title": "Lake Day",
+          "activities": ["Boat Cruise", "Picnic by Lake"]
+        },
+        {
+          "day": 5,
+          "title": "Trekking Experience",
+          "activities": ["Alpine Trek", "Mountain Views"]
+        },
+        {
+          "day": 6,
+          "title": "Leisure Day",
+          "activities": ["Cafe Visit", "Shopping", "City Exploration"]
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "activities": ["Breakfast", "Airport Transfer"]
+        }
+      ]
+    },
+
+    {
+      "destinationId": 9,
+      "title": "Mysore Palace",
+      "gallery": [
+        "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f",
+        "https://images.unsplash.com/photo-1593693411515-c20261bcad6e",
+        "https://images.unsplash.com/photo-1582719471384-894fbb16e074"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Heritage Tour",
+          "activities": ["Mysore Palace Visit", "Devaraja Market", "Local Cuisine"]
+        },
+        {
+          "day": 2,
+          "title": "Explore Mysore",
+          "activities": ["Chamundi Hills", "Brindavan Gardens", "Departure"]
+        }
+      ]
+    }
+  ]
+}

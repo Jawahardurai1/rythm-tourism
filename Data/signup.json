@@ -1,0 +1,19 @@
+{
+  "signup": [
+    {
+      "username": "Jawahar_",
+      "email": "jawahardurai7373@gmail.com",
+      "password": "1234",
+      "id": "qPbDUQzzwRg",
+      "booked": true,
+      "destination": "Palolem Beach",
+      "bookingDate": "6/12/2026, 3:14:51 PM",
+      "travelerName": "Jawahar D",
+      "phone": "9385454881",
+      "travelers": 1,
+      "totalAmount": 10999,
+      "contact": "9385454881"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

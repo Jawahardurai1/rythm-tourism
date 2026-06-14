@@ -1,0 +1,30 @@
+{
+  "booked": [
+    {
+      "id": "eM2KdUgobOg"
+    },
+    {
+      "username": "Jawahar_",
+      "destination": "Palolem Beach",
+      "price": "₹10,999",
+      "Date": "6/12/2026",
+      "id": "TxLoJ9U1hyo"
+    },
+    {
+      "username": "Jawahar_",
+      "destination": "Eiffel Tower",
+      "price": "₹89,999",
+      "Date": "6/12/2026",
+      "id": "olod-zEvqMo"
+    },
+     {
+      "username": "Jawahar_",
+      "destination": "Seminyak Beach",
+      "price": "₹89,999",
+      "Date": "6/12/2026",
+      "id": "olod-zEvqMo"
+    }
+  
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

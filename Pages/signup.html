@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <div class="w-full max-w-md p-8 bg-white rounded shadow">
+            <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+            <form id="signupdataform" class="space-y-4">
+                <div>
+            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <div>
+                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <div>
+                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required class="w-full px-3 py-2 border rounded">
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    Sign Up
+                </button>
+                <p class="text-sm text-center text-gray-600 mt-4">
+                    Already have an account? <a href="/login.html" class="text-green-500 hover:text-green-600">Log in</a></p>
+            </form>
+            </form>
+        </div>
+    </div>
+    <script>
+       let signupdataform=document.getElementById("signupdataform");
+       signupdataform.addEventListener("submit",async (e)=>{
+        e.preventDefault();
+        let username=document.getElementById("username").value;
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("password").value;
+        let confirmPassword=document.getElementById("confirm-password").value;
+        if(password!==confirmPassword){
+            alert("Passwords do not match!");
+            
+            return;
+        }
+       
+            const userData = {
+    username: username,
+    email: email,
+    password: password
+};
+try {
+const response=await axios.post("https://tourism-api-5tpw.onrender.com/signup",userData);
+console.log(response.data);
+localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("username", username);
+    window.location.href="index.html";
+alert("Signup successful!");
+
+    } catch (error) {
+        console.error(error);
+        alert("Signup failed. Please try again.");
+    }
+       });
+
+    </script>
+</body>
+</html>
