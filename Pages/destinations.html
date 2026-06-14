@@ -4,208 +4,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinations</title>
+    <title>Destinations - Rythm Tourism</title>
     <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/Styles/main.css">
+    <script src="/Scripts/utils.js"></script>
 </head>
 
-<body>
-    <div
-        class="bg-gray-800 flex justify-between items-center p-2 bg-gradient-to-r from-green-600 to-green-900 text-white">
-        <img src="/assets/left-chevron (2).png" onclick="history.back()"
-            class="text-orange-500 hover:scale-110 transition duration-300 cursor-pointer" alt="Back" width="50px">
-        <h1 class="text-2xl font-bold">
-            100+ Destinations Curated for Your Next Adventure
-        </h1>
+<body class="page-wrapper bg-gray-50">
+    <div class="bg-gradient-to-r from-green-700 to-green-900 flex justify-between items-center p-3 text-white shadow-lg">
+        <div class="flex items-center gap-3">
+            <img src="/assets/left-chevron (2).png" onclick="history.back()"
+                class="hover:scale-110 transition duration-300 cursor-pointer" alt="Back" width="45px">
+            <h1 class="text-xl md:text-2xl font-bold" style="font-family: 'Montserrat', sans-serif;">
+                <i class="fa-solid fa-globe"></i> 100+ Destinations Curated for Your Next Adventure
+            </h1>
+        </div>
         <button onclick="window.location.href='upcomingtrips.html'"
-            class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 transition duration 300 rounded-xl">
-            Trips Ahead
+            class="btn-orange py-2 px-4 text-sm">
+            <i class="fa-solid fa-suitcase-rolling"></i> Trips Ahead
         </button>
     </div>
-    <div id="card-container" class="flex flex-wrap justify-center gap-6 mt-10">
+
+    <div class="max-w-7xl mx-auto px-4 mt-6">
+        <div class="flex items-center gap-2 mb-6 reveal">
+            <div class="icon-circle"><i class="fa-solid fa-location-dot text-green-600"></i></div>
+            <h2 class="text-2xl font-bold" style="font-family: 'Montserrat', sans-serif;">Available Destinations</h2>
+        </div>
+
+        <div id="skeleton-container" class="flex flex-wrap justify-center gap-6">
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton skeleton-line skeleton-line-md"></div>
+                <div class="skeleton skeleton-line skeleton-line-sm"></div>
+                <div class="skeleton skeleton-line" style="width:40%"></div>
+            </div>
+        </div>
+
+        <div id="card-container" class="flex flex-wrap justify-center gap-6" style="display:none;"></div>
     </div>
-    <script type="module">
+
+    <script>
+        (async function() {
         const response = await axios.get("https://tourism-api-5tpw.onrender.com/destinations");
         const destinations = response.data;
         const response2 = await axios.get("https://tourism-api-5tpw.onrender.com/signup");
         const bookeddata = response2.data;
         const response3 = await axios.get("https://tourism-api-5tpw.onrender.com/previewTrips");
         const trips = response3.data;
-        console.log(trips);
         const username = localStorage.getItem("username");
-        const user = response2.data.find(u => u.username === username
-        );
+        const user = response2.data.find(u => u.username === username);
         const availablelocation = destinations.filter(dest => !bookeddata.some(book => book.destination == dest.name && book.booked == true))
 
+        document.getElementById("skeleton-container").style.display = "none";
+        document.getElementById("card-container").style.display = "flex";
+
         document.getElementById("card-container").innerHTML =
-            availablelocation.map(destination => `
-    <div class="w-83 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 p-5 border border-gray-200">
-          <img src="${destination.image}" class="h-48 w-full object-cover" />
-        <h2 class="text-xl font-bold mb-3 text-gray-800">
-            ${destination.name} 
+            availablelocation.map((destination, index) => `
+    <div class="w-83 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-5 border border-gray-200 animate-scale-in"
+         style="animation-delay:${index * 0.1}s">
+          <div class="relative overflow-hidden rounded-lg">
+              <img src="${destination.image}" class="h-48 w-full object-cover rounded-lg transition-transform duration-500 hover:scale-105" />
+          </div>
+        <h2 class="text-xl font-bold mt-3 text-gray-800" style="font-family: 'Montserrat', sans-serif;">
+            ${destination.name}
         </h2>
-        <p class="text-gray-600 leading-relaxed">
+        <p class="text-gray-600 leading-relaxed text-sm mt-1">
             ${destination.description}
         </p>
         <div class="mt-4 flex items-center justify-between">
+            <div>
                 <span class="text-green-600 font-bold text-lg">
                     ${destination.price}
-                    <span class="text-sm text-gray-500">per person</span><br>
-                    <span class="text-sm text-gray-500">${destination.days} Days Adventure</span>
                 </span>
-                <button  id="bookNowBtn-${destination.id}" data-name="${destination.name}"
-                data-price="${destination.price}" data-days="${destination.days}" class="cursor-pointer bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-2 rounded">
-                    Book Now
-                </button>
-            <i class="fa-solid fa-arrows-to-eye p-1 cursor-pointer preview-btn"
-   data-id="${destination.id}"
-   title="Preview"></i>
+                <span class="text-sm text-gray-500">per person</span><br>
+                <span class="text-sm text-gray-500"><i class="fa-solid fa-calendar-days"></i> ${destination.days} Days Adventure</span>
             </div>
+            <div class="flex items-center gap-2">
+                <button id="bookNowBtn-${destination.id}" data-name="${destination.name}"
+                data-price="${destination.price}" data-days="${destination.days}"
+                class="btn-primary py-2 px-3 text-sm btn-ripple">
+                    <i class="fa-solid fa-ticket"></i> Book Now
+                </button>
+                <i class="fa-solid fa-arrows-to-eye p-2 cursor-pointer preview-btn icon-circle text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300"
+                   data-id="${destination.id}"
+                   title="Preview"></i>
+            </div>
+        </div>
     </div>
 `).join("");
+
         document.querySelectorAll(".preview-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 previewTrip(Number(btn.dataset.id));
             });
         }); 
+
         async function previewTrip(destinationId) {
-
-            const trip = trips.find(
-                item => item.destinationId === destinationId
-            );
-
+            const trip = trips.find(item => item.destinationId === destinationId);
             if (!trip) {
-                Swal.fire("Trip preview not found");
+                Swal.fire({ icon: 'info', title: 'Trip preview not found', confirmButtonColor: '#16a34a' });
                 return;
             }
 
             Swal.fire({
                 title: trip.title,
                 width: "900px",
-                confirmButtonText: "Continue",
+                confirmButtonText: '<i class="fa-solid fa-check"></i> Continue',
+                confirmButtonColor: '#16a34a',
                 html: `
       <div style="max-height:600px;overflow-y:auto;padding:10px;">
-
-        <h3 style="
-          text-align:left;
-          font-size:18px;
-          font-weight:bold;
-          margin-bottom:12px;
-        ">
-          📸 Destination Gallery
+        <h3 style="text-align:left;font-size:18px;font-weight:bold;margin-bottom:12px;color:#166534;">
+          <i class="fa-solid fa-images"></i> Destination Gallery
         </h3>
-
-        <div style="
-          display:flex;
-          gap:12px;
-          overflow-x:auto;
-          padding-bottom:10px;
-          margin-bottom:20px;
-        ">
+        <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;">
           ${trip.gallery.map(img => `
-            <img
-              src="${img}"
-              style="
-                width:260px;
-                height:170px;
-                object-fit:cover;
-                border-radius:12px;
-                flex-shrink:0;
-                box-shadow:0 2px 8px rgba(0,0,0,.15);
-              "
-            >
+            <img src="${img}" style="width:260px;height:170px;object-fit:cover;border-radius:12px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15);">
           `).join("")}
         </div>
-
-        <h3 style="
-          text-align:left;
-          font-size:18px;
-          font-weight:bold;
-          margin-bottom:15px;
-        ">
-          🗓️ Day-by-Day Itinerary
+        <h3 style="text-align:left;font-size:18px;font-weight:bold;margin-bottom:15px;color:#166534;">
+          <i class="fa-solid fa-list"></i> Day-by-Day Itinerary
         </h3>
-
         ${trip.itinerary.map(day => `
-          <div style="
-            text-align:left;
-            border:1px solid #e5e7eb;
-            border-radius:10px;
-            padding:15px;
-            margin-bottom:12px;
-            background:#f9fafb;
-          ">
-            <h4 style="
-              margin:0 0 8px 0;
-              color:#16a34a;
-              font-size:17px;
-              font-weight:bold;
-            ">
-              Day ${day.day}
+          <div style="text-align:left;border:1px solid #e5e7eb;border-radius:10px;padding:15px;margin-bottom:12px;background:#f9fafb;">
+            <h4 style="margin:0 0 8px 0;color:#16a34a;font-size:17px;font-weight:bold;">
+              <i class="fa-solid fa-sun"></i> Day ${day.day}
             </h4>
-
-            <p style="
-              margin-bottom:10px;
-              font-weight:600;
-            ">
-              ${day.title}
-            </p>
-
-            <ul style="
-              margin-left:20px;
-              list-style:disc;
-            ">
-              ${day.activities.map(activity => `
-                <li>${activity}</li>
-              `).join("")}
+            <p style="margin-bottom:10px;font-weight:600;">${day.title}</p>
+            <ul style="margin-left:20px;list-style:disc;">
+              ${day.activities.map(activity => `<li>${activity}</li>`).join("")}
             </ul>
           </div>
         `).join("")}
-
       </div>
     `
             });
         }
 
-        console.log("Username from localStorage:", username);
-
-        //let bookNowBtn = document.getElementById("bookNowBtn");
         let bookNowBtns = document.querySelectorAll('[id^="bookNowBtn-"]');
-
         bookNowBtns.forEach(button => {
-
             button.addEventListener("click", async (e) => {
                 e.preventDefault();
                 const destinationName = button.dataset.name;
-                const price = Number(
-                    button.dataset.price.replace(/[^\d]/g, "")
-                );
+                const price = Number(button.dataset.price.replace(/[^\d]/g, ""));
                 const result = await Swal.fire({
-                    title: 'Confirm Booking',
+                    title: '<i class="fa-solid fa-circle-check text-green-500"></i> Confirm Booking',
                     text: 'Are you sure you want to book this destination?',
                     icon: 'question',
                     showCancelButton: true,
-                    confirmButtonText: 'Yes, Book Now',
-                    cancelButtonText: 'Cancel'
+                    confirmButtonText: '<i class="fa-solid fa-check"></i> Yes, Book Now',
+                    cancelButtonText: '<i class="fa-solid fa-xmark"></i> Cancel',
+                    confirmButtonColor: '#16a34a',
+                    cancelButtonColor: '#6b7280'
                 });
-                console.log("dataset.price =", button.dataset.price);
-                console.log("price =", Number(button.dataset.price));
                 if (result.isConfirmed) {
                     const { value: userDetails } = await Swal.fire({
-                        title: 'Traveler Details',
+                        title: '<i class="fa-solid fa-user-pen"></i> Traveler Details',
                         html: `
-      <input id="name" class="swal2-input" placeholder="Name">
-      <input id="phone" class="swal2-input" placeholder="Phone">
-      <input id="count" type="number" min="1" value="1"
-        class="swal2-input" placeholder="Traveler Count">
-      <input id="contact" class="swal2-input" placeholder=" Emergency Contact">
-    `,
+                            <div class="text-left space-y-3" style="padding:10px;">
+                                <div><label style="font-weight:600;font-size:14px;color:#374151;">Full Name</label>
+                                <input id="name" class="swal2-input" placeholder="Enter your name" style="width:100%;margin-top:4px;"></div>
+                                <div><label style="font-weight:600;font-size:14px;color:#374151;">Phone Number</label>
+                                <input id="phone" class="swal2-input" placeholder="Enter phone" style="width:100%;margin-top:4px;"></div>
+                                <div><label style="font-weight:600;font-size:14px;color:#374151;">Traveler Count</label>
+                                <input id="count" type="number" min="1" value="1" class="swal2-input" style="width:100%;margin-top:4px;"></div>
+                                <div><label style="font-weight:600;font-size:14px;color:#374151;">Emergency Contact</label>
+                                <input id="contact" class="swal2-input" placeholder="Emergency contact" style="width:100%;margin-top:4px;"></div>
+                            </div>
+                        `,
                         showCancelButton: true,
+                        confirmButtonText: '<i class="fa-solid fa-credit-card"></i> Proceed to Pay',
+                        cancelButtonText: '<i class="fa-solid fa-xmark"></i> Cancel',
+                        confirmButtonColor: '#16a34a',
+                        cancelButtonColor: '#6b7280',
                         preConfirm: () => ({
                             name: document.getElementById('name').value,
                             phone: document.getElementById('phone').value,
@@ -216,8 +223,6 @@
 
                     if (!userDetails) return;
                     const totalAmount = price * userDetails.count;
-                    console.log(userDetails);
-                    console.log(totalAmount);
 
                     var options = {
                         key: "rzp_test_SpvaKUiwj028Cu",
@@ -226,20 +231,19 @@
                         name: destinationName + " package",
                         description: "sample payment",
                         handler: async function (response) {
+                            fireConfetti();
                             await Swal.fire({
                                 icon: 'success',
-                                title: 'Trip Booked Successfully!',
+                                title: '<i class="fa-solid fa-party-horn"></i> Trip Booked Successfully!',
                                 text: 'Get ready for your adventure',
                                 allowOutsideClick: false,
                                 allowEscapeKey: false,
-                                confirmButtonText: 'OK',
+                                confirmButtonText: '<i class="fa-solid fa-check"></i> Awesome!',
+                                confirmButtonColor: '#16a34a',
                                 timer: 10000,
-                                redirect: false,
-                                callback_url: undefined,
-
                             });
                             try {
-                                await axios.patch(`http://localhost:3000/signup/${user.id}`,
+                                await axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`,
                                     {
                                         booked: true,
                                         destination: destinationName,
@@ -250,41 +254,32 @@
                                         totalAmount: totalAmount,
                                         contact: userDetails.contact,
                                     });
-                                await axios.post("http://localhost:3002/booked",
+                                await axios.post("https://tourism-api-5tpw.onrender.com/booked",
                                     {
                                         username: username,
                                         destination: button.dataset.name,
                                         price: button.dataset.price,
                                         Date: new Date().toLocaleDateString()
-                                    })
-                                console.log("triggered ");
-
+                                    });
                             }
                             catch (e) {
                                 console.error("Handler error:", e);
-                                Swal.fire(
-                                    {
-                                        icon: "error",
-                                        title: "Payment Error",
-                                        text: "Try after sometimes",
-                                        allowOutsideClick: false,
-                                        timer: 1000
-
-                                    }
-                                )
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Payment Error",
+                                    text: "Try after sometimes",
+                                    allowOutsideClick: false,
+                                    timer: 1000
+                                });
                             }
                         }
                     }
                     var razorpayment = new Razorpay(options);
                     razorpayment.open();
                 }
-                else {
-                    console.log("cancelled")
-                }
             });
         });
-
+        })();
     </script>
 </body>
-
 </html>
