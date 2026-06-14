@@ -11,22 +11,21 @@
     <link href="https://googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
+    <link rel="icon" href="assets/tourism.png" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-
 <body>
     <div class="bg-gradient-to-r from-green-700 to-green-900 flex gap-40 items-center  p-1 bg-gray-800 text-white">
-        <img src="/assets/left-chevron (2).png" onclick="history.back()"
+        <img src="../assets/left-chevron (2).png" onclick="history.back()"
             class="text-orange-500 hover:scale-110 transition duration-300 cursor-pointer" alt="Back" width="50px">
         <h1 class="text-xl font-bold" style="font-family: 'Montserrat', sans-serif;">
             Your Next Destinations!
         </h1>
     </div>
     <div class="relative w-full h-[400px] md:h-[300px] overflow-hidden">
-        <img src="/assets/coverimage.png" class="w-full h-full object-cover">
+        <img src="../assets/coverimage.png" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
             <span
                 class="absolute top-37 left-10 -translate-y-1/2 text-sm text-green-600 bg-green-200 rounded-2xl p-1 font-bold border-1 border tracking-wide"
@@ -121,7 +120,7 @@
         console.log(trips);
         const finaldata = defaulttrips.filter(def => conformedtrips.some(con => con.destination == def.name));
         const totalcount = conformedtrips.length;
-        document.getElementById("count").textContent = totalcount-1;
+        document.getElementById("count").textContent = totalcount;
         const totalprice = finaldata.reduce((sum, trip) => {
             const price = Number(trip.price.replace("₹", "").replace(/,/g, ""));
             return sum + price;
