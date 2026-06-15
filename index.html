@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,202 +9,240 @@
     <link rel="icon" href="assets/tourism.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
     <header id="header">
-        <nav class="flex items-center justify-between p-2 bg-gradient-to-r from-green-600 to-green-900 text-white text-white">
+        <nav
+            class="flex items-center justify-between p-2 bg-gradient-to-r from-green-600 to-green-900 text-white text-white">
             <div class="flex  items-center ">
-            <img src="assets/logo2.png" class="h-15 w-auto object-contain" alt="Rythm Tourism Logo">
-            <h4 class="text-xl font-bold tracking-widest" style="font-family: 'Montserrat', sans-serif;">Rythm Tourism</h4></div>
-            <div class="flex items-center gap-12 text-dm tracking-normal " style="font-family: 'Montserrat', sans-serif" >
-           <a class=" px-2 py-1 rounded-lg curosor-pointer">Home</a>
-           <a  href="Pages/destinations.html">Destinations</a>
-           <a href="Pages/Services.html">Services</a>
-           <a href="#contact">Contact</a>
-            <button id="btn"
-        class="flex items-center gap-2 bg-green-600 hover:bg-green-700 
+                <img src="assets/logo2.png" class="h-15 w-auto object-contain" alt="Rythm Tourism Logo">
+                <h4 class="text-xl font-bold tracking-widest" style="font-family: 'Montserrat', sans-serif;">Rythm
+                    Tourism</h4>
+            </div>
+            <div class="flex items-center gap-12 text-dm tracking-normal "
+                style="font-family: 'Montserrat', sans-serif">
+                <a class=" px-2 py-1 rounded-lg curosor-pointer">Home</a>
+                <a href="Pages/destinations.html">Destinations</a>
+                <a href="Pages/Services.html">Services</a>
+                <a href="#contact">Contact</a>
+                <button id="btn" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 
         transition-all duration-300 text-white font-semibold 
         py-2 px-5 rounded-xl shadow-md hover:shadow-lg cursor-pointer">
 
-        <i class="fa-solid fa-plane-departure"></i>
-        Book Now
-    </button>
-           <span id="start"
-        class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Book Now
+                </button>
+                <span id="start" class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 
         text-white cursor-pointer transition-all duration-300 
         py-2 px-5 rounded-xl shadow-md hover:shadow-lg font-semibold">
 
-        <i class="fa-solid fa-compass"></i>
-        Get Started
-    </span>
-           <div id="userSection"></div>
-           </div>
+                    <i class="fa-solid fa-compass"></i>
+                    Get Started
+                </span>
+                <div id="userSection"></div>
+            </div>
         </nav>
     </header>
-    <main class="flex flex-col items-center rounded h-130" style="background-image: url('assets/img1.jpg'); background-size: cover; background-position: center; opacity: 0.9;">
+    <main class="flex flex-col items-center rounded h-130"
+        style="background-image: url('assets/img1.jpg'); background-size: cover; background-position: center; opacity: 0.9;">
         <div class="pt-18  text-center text-[#166927]">
-        <h1 class="text-4xl font-bold ">Welcome to Rythm Tourism</h1>
-        <p class="text-lg mb-8">Discover the world with us!</p>
+            <h1 class="text-4xl font-bold ">Welcome to Rythm Tourism</h1>
+            <p class="text-lg mb-8">Discover the world with us!</p>
         </div>
     </main>
-    
+
     <section>
-            <div class="mt-10 text-center">
-                <h2 class="text-3xl font-bold ">Explore our Destinations</h2>
+        <div class="mt-10 text-center">
+            <h2 class="text-3xl font-bold ">Explore our Destinations</h2>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-3 ">
+            <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/img2.jpg" alt="Destination 1" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Munnar</h3>
+                <h5 class="italic text-gray-500"> ~Tea Paradise</h5>
+                <p class="text-gray-600">A beautiful hill station in Kerala known for vast tea plantations, misty
+                    valleys, and cool climate.
+                    Popular for scenic viewpoints, waterfalls, and winding mountain roads.</p>
             </div>
-            <div class="grid grid-cols-3 gap-3 mt-3 ">
-                <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
-                    <img src="assets/img2.jpg" alt="Destination 1" class="w-full h-50 object-cover rounded">
-                    <h3 class="text-xl font-bold mt-2">Munnar</h3>
-                    <h5 class="italic text-gray-500"> ~Tea Paradise</h5>
-                    <p class="text-gray-600">A beautiful hill station in Kerala known for vast tea plantations, misty valleys, and cool climate.
-Popular for scenic viewpoints, waterfalls, and winding mountain roads.</p>
-                </div>
-                <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
-                    <img src="assets/img3.jpg" alt="Destination 2" class="w-full h-50 object-cover rounded">
-                    <h3 class="text-xl font-bold mt-2">Valparai</h3>
+            <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/img3.jpg" alt="Destination 2" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Valparai</h3>
                 <h5 class="italic text-gray-500"> ~Hidden Heaven</h5>
-                    <p class="text-gray-600">"A picturesque hill station in Tamil Nadu known for its lush greenery, waterfalls, and serene landscapes."</p>
-                </div>
-                <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
-                    <img src="assets/img4.jpg" alt="Destination 3" class="w-full h-50 object-cover rounded">
-                    <h3 class="text-xl font-bold mt-2">Coorg</h3>
-                    <h5 class="italic text-gray-500"> ~Scenic Escape</h5>
-                    <p class="text-gray-600">A hill station in Karnataka known for its coffee plantations, wildlife, and adventure activities.</p>
-                </div>
+                <p class="text-gray-600">"A picturesque hill station in Tamil Nadu known for its lush greenery,
+                    waterfalls, and serene landscapes."</p>
             </div>
-<div class="flex flex-row items-center mt-10 gap-10">
-    <div class="w-1/2 px-10 py-5 bg-white">
-        <p class="text-lg leading-relaxed font-medium text-gray-700">
-            Click the icons on the travel roadmap to explore different services,
-            including trip planning, navigation, bookings, transportation,
-            partnerships, and travel galleries.
-        </p>
-    </div>
-    <div class="w-1/2">
-        <img
-            src="assets/mapimage-removebg-preview.png" alt="Tourism Phases" usemap="#phases"  class="w-full h-auto">  
-        <map name="phases">
-            <area shape="circle" coords="80,50,25" href="planning.html" alt="Planning">
-           <area shape="circle" coords="190,55,25" href="navigation.html" alt="Navigation">
-            <area shape="circle" coords="225,130,25" href="booking.html" alt="Booking">
-            <area shape="circle" coords="190,210,25" href="partners.html" alt="Partners">
-        <area shape="circle" coords="80,210,25" href="transport.html" alt="Transport">
-            <area shape="circle" coords="40,130,25" href="destinations.html" alt="Gallery">
-            <area shape="circle" coords="135,130,30" href="" alt="Home">
-        </map>
-        
-    </div>
-</div>
- </div>
- <div id="service" class="mt-10 text-center">
-    <h4 class="text-3xl font-bold">Services we offer!</h4>
-     </div>
-            <div class="grid grid-cols-3 gap-3 mt-3 sm:grid-cols-1 md:grid-cols-3">
-                    <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
-                         <img src="assets/accc.png" alt="Service 1" class="w-full h-50 object-cover rounded">
-                        <h3 class="text-xl font-bold mt-2">Accommodation and Dining</h3>
-                        <p class="text-gray-600">Stay in comfortable hotels and enjoy delicious local and international cuisines.</p>
-                    </div>
-                     <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
-                         <img src="assets/famvacc.jpg" alt="Service 1" class="w-full h-50 object-cover rounded">
-                        <h3 class="text-xl font-bold mt-2">Family Tours</h3>
-                        <p class="text-gray-600">Enjoy safe and joyful trips designed for families to explore and relax together.</p>
-                    </div>
-                     <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
-                         <img src="assets/theme.jpg" alt="Service 1" class="w-full h-50 object-cover rounded">
-                        <h3 class="text-xl font-bold mt-2">Theme Parks</h3>
-                       <p class="text-gray-600 text-md">Experience thrilling rides, fun attractions, and entertainment for all age groups.</p>
-                    </div>
-                     
-                </div>     
-        </section>
-       <footer id="contact" class="mt-10 gap-10 bg-slate-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-3">Contact Us</h2>
-        <p class="text-center text-gray-300 mb-10">
-            Have questions or want to book a trip? Reach out to us!
-        </p>
-    <div class="grid md:grid-cols-3 gap-10 ">
-            <div>
-                <h3 class="text-xl font-semib   old mb-3">Head Office</h3>
-            <address class="text-gray-300">
-                    No. 12, Anna Salai,<br>
-                    T. Nagar, Chennai,<br>
-                    Tamil Nadu - 600017
-            </address>
-                <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7890</p>
-                <p><i class="fa-solid fa-envelope"></i> info.chennai@rythmtourism.com</p>
-            </div>
-               <div>
-                <h3 class="text-xl font-semibold mb-3">Branch Office</h3>
-                <address class="text-gray-300">
-                    45, MG Road,<br>
-                    Indiranagar, Bengaluru,<br>
-                    Karnataka - 560038
-                </address>
-                <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7891</p>
-                <p><i class="fa-solid fa-envelope"></i> info.bengaluru@rythmtourism.com</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold mb-3">Tour Operations</h3>
-                <address class="text-gray-300">
-                    8, Race Course Road,<br>
-                    Coimbatore,<br>
-                    Tamil Nadu - 641018
-                </address>
-                <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7892</p>
-                <p><i class="fa-solid fa-envelope"></i> info.coimbatore@rythmtourism.com</p>
+            <div class="bg-white p-4 rounded shadow-lg hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/img4.jpg" alt="Destination 3" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Coorg</h3>
+                <h5 class="italic text-gray-500"> ~Scenic Escape</h5>
+                <p class="text-gray-600">A hill station in Karnataka known for its coffee plantations, wildlife, and
+                    adventure activities.</p>
             </div>
         </div>
-    </div>
-</footer>
-<script>
-    let btn=document.getElementById("btn");
-    let started=document.getElementById("start")
-let username=localStorage.getItem("username");
-const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-if(btn){    
-btn.addEventListener("click",()=>{
-    window.location.href="Pages/signup.html";
-})
-}
-if(isLoggedIn){
-    btn.style.display="none";
-    started.style.display="none";
-}
-started.addEventListener("click",()=>
-{
-    window.location.href="Pages/login.html"
-})
+        <div class="flex flex-row items-center mt-10 gap-10">
+            <div class="w-1/2 px-10 py-5 bg-white">
+                <p class="text-lg leading-relaxed font-medium text-gray-700">
+                    Click the icons on the travel roadmap to explore different services,
+                    including trip planning, navigation, bookings, transportation,
+                    partnerships, and travel galleries.
+                </p>
+            </div>
+            <div class="w-1/2">
+                <img src="assets/mapimage-removebg-preview.png" alt="Tourism Phases" usemap="#phases"
+                    class="w-full h-auto">
+                <map name="phases">
+                    <area shape="circle" coords="80,50,25" href="planning.html" alt="Planning">
+                    <area shape="circle" coords="190,55,25" href="navigation.html" alt="Navigation">
+                    <area shape="circle" coords="225,130,25" href="booking.html" alt="Booking">
+                    <area shape="circle" coords="190,210,25" href="partners.html" alt="Partners">
+                    <area shape="circle" coords="80,210,25" href="transport.html" alt="Transport">
+                    <area shape="circle" coords="40,130,25" href="destinations.html" alt="Gallery">
+                    <area shape="circle" coords="135,130,30" href="" alt="Home">
+                </map>
 
-const userSection = document.getElementById("userSection");
-if (isLoggedIn) {
-    userSection.innerHTML = `
-        <span  class="flex items-center gap-3 px-4 py-2">
-            <i class="fa-solid fa-bell p-2 text-2xl cursor-pointer"></i>
-            <p class="leading-10"> |</p>
-            <i class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
-            <span id="profilebtn" class="text-sm cursor-pointer">${username}</span>`
+            </div>
+        </div>
+        </div>
+        <div id="service" class="mt-10 text-center">
+            <h4 class="text-3xl font-bold">Services we offer!</h4>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-3 sm:grid-cols-1 md:grid-cols-3">
+            <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/accc.png" alt="Service 1" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Accommodation and Dining</h3>
+                <p class="text-gray-600">Stay in comfortable hotels and enjoy delicious local and international
+                    cuisines.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/famvacc.jpg" alt="Service 1" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Family Tours</h3>
+                <p class="text-gray-600">Enjoy safe and joyful trips designed for families to explore and relax
+                    together.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow-lg  hover:shadow-xl hover:scale-105 transition duration-300">
+                <img src="assets/theme.jpg" alt="Service 1" class="w-full h-50 object-cover rounded">
+                <h3 class="text-xl font-bold mt-2">Theme Parks</h3>
+                <p class="text-gray-600 text-md">Experience thrilling rides, fun attractions, and entertainment for all
+                    age groups.</p>
+            </div>
 
-const profilebutton=document.getElementById("profilebtn");
- 
+        </div>
+    </section>
+    <footer id="contact" class="mt-10 gap-10 bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-3">Contact Us</h2>
+            <p class="text-center text-gray-300 mb-10">
+                Have questions or want to book a trip? Reach out to us!
+            </p>
+            <div class="grid md:grid-cols-3 gap-10 ">
+                <div>
+                    <h3 class="text-xl font-semib   old mb-3">Head Office</h3>
+                    <address class="text-gray-300">
+                        No. 12, Anna Salai,<br>
+                        T. Nagar, Chennai,<br>
+                        Tamil Nadu - 600017
+                    </address>
+                    <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7890</p>
+                    <p><i class="fa-solid fa-envelope"></i> info.chennai@rythmtourism.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Branch Office</h3>
+                    <address class="text-gray-300">
+                        45, MG Road,<br>
+                        Indiranagar, Bengaluru,<br>
+                        Karnataka - 560038
+                    </address>
+                    <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7891</p>
+                    <p><i class="fa-solid fa-envelope"></i> info.bengaluru@rythmtourism.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Tour Operations</h3>
+                    <address class="text-gray-300">
+                        8, Race Course Road,<br>
+                        Coimbatore,<br>
+                        Tamil Nadu - 641018
+                    </address>
+                    <p class="mt-4"><i class="fa-solid fa-phone"></i> +123 456 7892</p>
+                    <p><i class="fa-solid fa-envelope"></i> info.coimbatore@rythmtourism.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let btn = document.getElementById("btn");
+        let started = document.getElementById("start")
+        let username = localStorage.getItem("username");
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        if (btn) {
+            btn.addEventListener("click", () => {
+                window.location.href = "Pages/signup.html";
+            })
+        }
+        if (isLoggedIn) {
+            btn.style.display = "none";
+            started.style.display = "none";
+        }
+        started.addEventListener("click", () => {
+            window.location.href = "Pages/login.html"
+        })
 
- profilebutton.addEventListener("click",(e)=>
-{
-    const logoutbtn=document.createElement("div");
-    logoutbtn.innerHTML=`<button class="absolute top-15 text-sm bg-white cursor-pointer text-red-500 hover:bg-gray-100 rounded-lg p-2 z-10 font-sans right-8">log out</button>`;
-    userSection.append(logoutbtn);
-    logoutbtn.addEventListener("click", () => {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("username");
-        window.location.href = "index.html";
+        const userSection = document.getElementById("userSection");
+        if (isLoggedIn) {
+            userSection.innerHTML = `
+       <span class="flex items-center gap-3 px-4 py-2">
+   <div class="relative inline-block cursor-pointer" onclick="showNotifications()">
+    <i class="fa-solid fa-bell text-2xl"></i>
+    <span id="notificationBadge"
+        class="absolute -top-1 -right-2 
+        bg-red-500 text-white text-[10px] 
+        min-w-[18px] h-[18px] flex items-center 
+        justify-center rounded-full font-bold">
+        0
+    </span>
+</div>
+ <p class="leading-10"> |</p>
+<i class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
+<span id="profilebtn" class="text-sm cursor-pointer">${username}</span>
+
+</span>`
+
+            const profilebutton = document.getElementById("profilebtn");
+
+
+            profilebutton.addEventListener("click", (e) => {
+                const logoutbtn = document.createElement("div");
+                logoutbtn.innerHTML = `<button class="absolute top-15 text-sm bg-white cursor-pointer text-red-500 hover:bg-gray-100 rounded-lg p-2 z-10 font-sans right-8">log out</button>`;
+                userSection.append(logoutbtn);
+                logoutbtn.addEventListener("click", () => {
+                    localStorage.removeItem("isLoggedIn");
+                    localStorage.removeItem("username");
+                    window.location.href = "index.html";
+                });
+            })
+
+        }
+
+function showNotifications() {
+let count =localStorage.getItem("notificationCount") || 0;
+    Swal.fire({
+        title: "Notifications",
+        text: `You have ${count} new booking notifications`,
+        icon: "info"
     });
-})
-    
-} 
-
-
-</script>
+    localStorage.setItem("notificationCount", 0);
+    document.getElementById("notificationBadge").textContent = 0;
+}
+const count = Number(localStorage.getItem("notificationCount")) || 0;
+const badge = document.getElementById("notificationBadge");
+if (count > 0) {
+    badge.textContent = count;
+    badge.classList.remove("hidden");
+} else {
+    badge.classList.add("hidden");
+}
+    </script>
 </body>
+
 </html>

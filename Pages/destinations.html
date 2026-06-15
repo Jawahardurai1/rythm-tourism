@@ -181,8 +181,6 @@
 
             button.addEventListener("click", async (e) => {
                 e.preventDefault();
-                
-
     if (!username) {
         await Swal.fire({
             icon: "warning",
@@ -216,6 +214,8 @@
       <input id="phone" class="swal2-input" placeholder="Phone">
       <input id="count" type="number" min="1" value="1"
         class="swal2-input" placeholder="Traveler Count">
+         <input id="travelDate" type="date"
+        class="swal2-input">
       <input id="contact" class="swal2-input" placeholder=" Emergency Contact">
     `,
                         showCancelButton: true,
@@ -223,6 +223,7 @@
                             name: document.getElementById('name').value,
                             phone: document.getElementById('phone').value,
                             count: Number(document.getElementById('count').value),
+                            travelDate: document.getElementById('travelDate').value,
                             contact: document.getElementById('contact').value
                         })
                     });
@@ -239,6 +240,9 @@
                         name: destinationName + " package",
                         description: "sample payment",
                         handler: async function (response) {
+                               let notificationCount = Number(localStorage.getItem("notificationCount")) || 0;
+                            notificationCount++;
+                            localStorage.setItem("notificationCount", notificationCount);
                             await Swal.fire({
                                 icon: 'success',
                                 title: 'Trip Booked Successfully!',
@@ -251,6 +255,7 @@
                                 callback_url: undefined,
 
                             });
+                         
                             try {
                                 await axios.patch(`http://localhost:3000/signup/${user.id}`,
                                     {
@@ -261,6 +266,7 @@
                                         phone: userDetails.phone,
                                         travelers: userDetails.count,
                                         totalAmount: totalAmount,
+                                        TravelDate:userDetails.travelDate,
                                         contact: userDetails.contact,
                                     });
                                 await axios.post("http://localhost:3002/booked",
@@ -268,6 +274,7 @@
                                         username: username,
                                         destination: button.dataset.name,
                                         price: button.dataset.price,
+                                        TravelDate:userDetails.travelDate,
                                         Date: new Date().toLocaleDateString()
                                     })
                                 console.log("triggered ");
