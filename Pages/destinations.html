@@ -69,11 +69,11 @@ hover:shadow-xl transition duration-300">
         const username = localStorage.getItem("username");
         const user = response2.data.find(u => u.username === username
         );
-        if(!user)
-    {
-        await Swal.fire("User not found. Please login again");
+    //     if(!user)
+    // {
+    //     await Swal.fire("User not found. Please login again");
   
-    }
+    // }
         const availablelocation = destinations.filter(dest => !bookeddata.some(book => book.destination == dest.name && book.booked == true))
 
         document.getElementById("card-container").innerHTML =
@@ -283,7 +283,7 @@ class="swal2-input" placeholder="Email">
                             await Swal.fire({
                                 icon: 'success',
                                 title: 'Trip Booked Successfully!',
-                                text: 'Get ready for your adventure',
+                                text: 'Get ready for your adventure check mail for the additional information',
                                 allowOutsideClick: false,
                                 allowEscapeKey: false,
                                 confirmButtonText: 'OK',
