@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
      <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
+             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../assets/theme.js"></script>
@@ -69,7 +70,13 @@
                 let users=response.data;
                 let user=users.some(u=>u.username===username && u.password===password);
                 if(user){
-    alert("Login successful!");
+                                await Swal.fire({
+                                icon: 'success',
+                                title: 'Login Successful!',
+                                text: 'Get ready for your adventure',
+                                confirmButtonText: 'OK',
+                                timer: 10000,
+                            });
        localStorage.setItem("isLoggedIn", true);
     localStorage.setItem("username", username);
     window.location.href="../index.html";

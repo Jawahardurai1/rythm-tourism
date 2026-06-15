@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="assets/tourism.png" type="image/x-icon">
     <script src="../assets/theme.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -76,8 +77,15 @@ const response=await axios.post("https://tourism-api-5tpw.onrender.com/signup",u
 console.log(response.data);
 localStorage.setItem("isLoggedIn", true);
     localStorage.setItem("username", username);
+      await Swal.fire({
+                                icon: 'success',
+                                title: 'Sign up Successful!',
+                                text: 'Get ready for your adventure',
+                                confirmButtonText: 'OK',
+                                timer: 10000,
+                            });
     window.location.href="../index.html";
-alert("Signup successful!");
+
 
     } catch (error) {
         console.error(error);
