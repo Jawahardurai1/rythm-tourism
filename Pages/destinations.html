@@ -181,6 +181,19 @@
 
             button.addEventListener("click", async (e) => {
                 e.preventDefault();
+                
+
+    if (!username) {
+        await Swal.fire({
+            icon: "warning",
+            title: "Login Required",
+            text: "Please login before booking a trip",
+            confirmButtonText: "Go to Login"
+        });
+
+        window.location.href = "login.html";  
+        return;
+    }
                 const destinationName = button.dataset.name;
                 const price = Number(
                     button.dataset.price.replace(/[^\d]/g, "")
