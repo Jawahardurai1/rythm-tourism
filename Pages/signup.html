@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
+    <link rel="icon" href="assets/tourism.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -34,7 +34,7 @@
                     Sign Up
                 </button>
                 <p class="text-sm text-center text-gray-600 mt-4">
-                    Already have an account? <a href="/login.html" class="text-green-500 hover:text-green-600">Log in</a></p>
+                    Already have an account? <a href="../Pages/login.html" class="text-green-500 hover:text-green-600">Log in</a></p>
             </form>
             </form>
         </div>
@@ -63,7 +63,7 @@ const response=await axios.post("https://tourism-api-5tpw.onrender.com/signup",u
 console.log(response.data);
 localStorage.setItem("isLoggedIn", true);
     localStorage.setItem("username", username);
-    window.location.href="index.html";
+    window.location.href="../index.html";
 alert("Signup successful!");
 
     } catch (error) {
