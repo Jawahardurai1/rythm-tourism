@@ -10,6 +10,18 @@
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+    #bg-video {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+     .theme-card {
+        background: transparent !important;
+    }
+    </style>
 </head>
 <body>
     <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-2 flex justify-between items-center shadow-lg">
@@ -23,26 +35,30 @@
             class="bg-orange-500 hover:bg-orange-700 px-4 py-2 rounded-xl transition duration-300">
             Back
         </button>
+        <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../assets/clip.mp4" type="video/mp4">
+    </video>
+    <div class="fixed inset-0 bg-black/40" style="z-index: 0;"></div>
     </nav>
-    <div class="theme-card flex flex-col items-center justify-center h-screen bg-gray-100">
-        <div class="w-full max-w-md p-8 bg-white rounded shadow">
+<div class="theme-card relative flex flex-col items-center justify-center h-screen" style="z-index: 1;">
+        <div class="w-full max-w-md p-8 rounded shadow bg-black/30 backdrop-blur-md border-white/20">
             <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
             <form id="signupdataform" class="space-y-4">
                 <div>
-            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded">
+            <label for="username" class="block text-sm font-medium  text-white/80">Username</label>
+                <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
                 <div>
-                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded">
+                 <label for="email" class="block text-sm font-medium  text-white/80">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
                 <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded">
+                <label for="password" class="block text-sm font-medium  text-white/80">Password</label>
+                <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
                 <div>
-                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" required class="w-full px-3 py-2 border rounded">
+                <label for="confirm-password" class="block text-sm font-medium  text-white/80">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
                 <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                     Sign Up
