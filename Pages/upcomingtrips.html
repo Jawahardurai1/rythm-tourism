@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
+        <script src="../assets/theme.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/tourism.png" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -17,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-   <div class="bg-gradient-to-r from-green-700 to-green-900 flex justify-between items-center px-4 py-2 text-white shadow-lg">
+   <div class=" theme-nav bg-gradient-to-r from-green-700 to-green-900 flex justify-between items-center px-4 py-2 text-white shadow-lg">
     <img src="../assets/left-chevron (2).png" onclick="history.back()"
         class="text-orange-500 hover:scale-110 transition duration-300 cursor-pointer"
         alt="Back" width="50px">
@@ -56,9 +57,9 @@
         </div>
     </div>
     <div class="grid grid-cols-2 pl-4 gap-3 mt-10">
-        <div id="card-container" class=" flex flex-col gap-5"></div>
+        <div id="theme-card card-container" class=" flex flex-col gap-5"></div>
         <div class=" p-4 m-3 border-1 border-gray-200 hover:shadow-xl rounded mr-2">
-            <div class="bg-gradient-to-r from-green-800 to-green-600 rounded-2xl p-5 text-white shadow-lg">
+            <div class="theme-card bg-gradient-to-r from-green-800 to-green-600 rounded-2xl p-5 text-white shadow-lg">
 
                 <h2 class="text-lg font-semibold flex items-center gap-2">
                     <i class="fa-solid fa-suitcase"></i> Trip Summary
@@ -143,7 +144,7 @@
         console.log(conformedtrips);
         document.getElementById("card-container").innerHTML =
             finaldata.map(destination => `
-<div class="  bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 p-2 gap-2 border border-gray-200    flex flex-cols">
+<div class=" theme-card bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 p-2 gap-2 border border-gray-200    flex flex-cols">
                <img  class="w-68 h-45 rounded-xl object-cover"src="${destination.image}">
             <div class="p-3  justify-center">
                 <div class="flex gap-23 justify-between">
