@@ -251,10 +251,21 @@ class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-poin
 
 function showNotifications() {
 let count =localStorage.getItem("notificationCount") || 0;
+ let destination = localStorage.getItem("destination");
+    if (!destination) {
+        Swal.fire({
+            title: "Notifications",
+            text: "No bookings found",
+            icon: "info"
+        });
+        return;
+    }
+
     Swal.fire({
-        title: "Notifications",
-        text: `You have ${count} new booking notifications`,
-        icon: "info"
+        title: "Your Booking",
+        html: `📍 <b>${destination}</b>`,
+         text: "Destination Sucessfully check mail for the information",
+        icon: "success"
     });
     localStorage.setItem("notificationCount", 0);
     document.getElementById("notificationBadge").textContent = 0;

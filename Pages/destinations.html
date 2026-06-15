@@ -264,7 +264,7 @@ class="swal2-input" placeholder="Email">
                             contact: document.getElementById('contact').value
                         })
                     });
-
+                    
                     if (!userDetails) return;
                     const totalAmount = price * userDetails.count;
                     console.log(userDetails);
@@ -279,6 +279,7 @@ class="swal2-input" placeholder="Email">
                         handler: async function (response) {
                                let notificationCount = Number(localStorage.getItem("notificationCount")) || 0;
                             notificationCount++;
+                            localStorage.setItem("destination",destinationName);
                             localStorage.setItem("notificationCount", notificationCount);
                             await Swal.fire({
                                 icon: 'success',
