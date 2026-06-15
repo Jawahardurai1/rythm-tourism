@@ -12,6 +12,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
    
 </head>
 
@@ -57,6 +58,7 @@ hover:shadow-xl transition duration-300">
     </div>
      <script src="../assets/theme.js"></script>
     <script type="module">
+        emailjs.init("QKZJDiVCtHhO_b0py");
         const response = await axios.get("https://tourism-api-5tpw.onrender.com/destinations");
         const destinations = response.data;
         const response2 = await axios.get("https://tourism-api-5tpw.onrender.com/signup");
@@ -67,6 +69,11 @@ hover:shadow-xl transition duration-300">
         const username = localStorage.getItem("username");
         const user = response2.data.find(u => u.username === username
         );
+        if(!user)
+    {
+        await Swal.fire("User not found. Please login again");
+  
+    }
         const availablelocation = destinations.filter(dest => !bookeddata.some(book => book.destination == dest.name && book.booked == true))
 
         document.getElementById("card-container").innerHTML =
@@ -239,6 +246,8 @@ applyTheme();
                         html: `
       <input id="name" class="swal2-input" placeholder="Name">
       <input id="phone" class="swal2-input" placeholder="Phone">
+      <input id="email" type="email"
+class="swal2-input" placeholder="Email">
       <input id="count" type="number" min="1" value="1"
         class="swal2-input" placeholder="Traveler Count">
          <input id="travelDate" type="date"
@@ -248,6 +257,7 @@ applyTheme();
                         showCancelButton: true,
                         preConfirm: () => ({
                             name: document.getElementById('name').value,
+                             email: document.getElementById('email').value,
                             phone: document.getElementById('phone').value,
                             count: Number(document.getElementById('count').value),
                             travelDate: document.getElementById('travelDate').value,
@@ -284,7 +294,7 @@ applyTheme();
                             });
                          
                                     try {
-                                        axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`, {
+                                       await axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`, {
                                         booked: true,
                                         destination: destinationName,
                                         bookingDate: new Date().toLocaleString(),
@@ -296,7 +306,7 @@ applyTheme();
                                         contact: userDetails.contact,
                                     }).catch(err => console.log("PATCH failed:", err));
 
-                                    axios.post("https://tourism-api-5tpw.onrender.com/booked", {
+                                   await axios.post("https://tourism-api-5tpw.onrender.com/booked", {
                                         username,
                                         destination: destinationName,
                                         price: button.dataset.price,
@@ -304,6 +314,22 @@ applyTheme();
                                         Date: new Date().toLocaleDateString()
                                     }).catch(err => console.log("POST failed:", err));
                                 console.log("triggered ");
+                              await emailjs.send(
+                                "service_tkfm5f8",
+                                "template_sc610kx",
+                                
+                                {
+                                    customer_name: userDetails.name,
+                                    customer_email: userDetails.email,
+                                    booking_id: "RT" + Date.now(),
+                                    destination: destinationName,
+                                    travel_date: userDetails.travelDate,
+                                    traveler_count: userDetails.count,
+                                    package_name: destinationName + " Package",
+                                    amount: totalAmount
+                                },
+                                "QKZJDiVCtHhO_b0py"
+                                );
 
                             }
                             catch (e) {
