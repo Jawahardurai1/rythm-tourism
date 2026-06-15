@@ -8,24 +8,53 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../assets/theme.js"></script>
+    <style>
+    #bg-video {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+     .theme-card {
+        background: transparent !important;
+    }
+</style>
 </head>
 <body>
-    <div class="theme-card flex flex-col items-center justify-center h-screen bg-gray-100">
-        <div class="w-full max-w-md p-8 bg-white rounded shadow">
-            <h2 class="text-2xl font-bold mb-6 text-center">Log In</h2>
+    <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-2 flex justify-between items-center shadow-lg">
+
+        <h1 class="text-2xl font-bold flex items-center gap-2">
+            <i class="fa-solid fa-earth-asia"></i>
+            Rythm Tourism
+        </h1>
+
+        <button onclick="history.back()"
+            class="bg-orange-500 hover:bg-orange-700 px-4 py-2 rounded-xl transition duration-300">
+            Back
+        </button>
+    </nav>
+     <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../assets/clip.mp4" type="video/mp4">
+    </video>
+    <div class="fixed inset-0 bg-black/40" style="z-index: 0;"></div>
+
+    <div class="theme-card relative flex flex-col items-center justify-center h-screen" style="z-index: 1;">
+        <div class="w-full max-w-md p-8 bg-black/30 backdrop-blur-md rounded shadow border border-white/20">
+            <h2 class="text-2xl font-bold mb-6 text-center  text-white/80">Log In</h2>
             <form id="logindataform" class="space-y-4">
                 <div>
-            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded">
+            <label for="username" class="block text-sm font-medium text-gray-700  text-white/80">Username</label>
+                <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
                 <div>
-                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded">
+                 <label for="password" class="block text-sm font-medium  text-white/80">Password</label>
+                    <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded  text-white/80">
                 </div>
-                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded  text-white/80">
                     Log In
                 </button>
-                <p class="text-sm text-center text-gray-600 mt-4">
+                <p class="text-sm text-center  text-white/80 mt-4">
                     Don't have an account? <a href="signup.html" class="text-green-500 hover:text-green-600">Sign up</a></p>
             </form>
         </div>
