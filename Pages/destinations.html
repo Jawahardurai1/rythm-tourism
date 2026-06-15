@@ -221,9 +221,8 @@ applyTheme();
         return;
     }
                 const destinationName = button.dataset.name;
-                const price = Number(
-                    button.dataset.price.replace(/[^\d]/g, "")
-                );
+                const price = parseInt(button.dataset.price.replace(/[^0-9]/g, ""));
+                
                 const result = await Swal.fire({
                     title: 'Confirm Booking',
                     text: 'Are you sure you want to book this destination?',
@@ -285,7 +284,7 @@ applyTheme();
                             });
                          
                             try {
-                                await axios.patch(`http://localhost:3000/signup/${user.id}`,
+                                await axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`,
                                     {
                                         booked: true,
                                         destination: destinationName,
@@ -297,7 +296,7 @@ applyTheme();
                                         TravelDate:userDetails.travelDate,
                                         contact: userDetails.contact,
                                     });
-                                await axios.post("http://localhost:3002/booked",
+                                await axios.post("https://tourism-api-5tpw.onrender.com/booked",
                                     {
                                         username: username,
                                         destination: button.dataset.name,
