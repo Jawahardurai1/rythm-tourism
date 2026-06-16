@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations | Rythm Tourism</title>
-    <link rel="icon" href="/assets/tourism.png" type="image/x-icon">
+    <link rel="icon" href="../assets/tourism.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -13,9 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-   
 </head>
-
 <body>
     <div class="theme-nav flex flex-wrap justify-between items-center p-2 gap-2 bg-gradient-to-r from-green-600 to-green-900 text-white">
     <img src="../assets/left-chevron (2).png" onclick="history.back()"
@@ -50,9 +47,7 @@ hover:shadow-xl transition duration-300">
 
             Search
         </button>
-
     </div>
-
 </div>
     <div id="card-container" class="theme-card flex flex-wrap justify-center gap-6 mt-10">
     </div>
@@ -206,7 +201,6 @@ applyTheme();
     `
             });
         }
-
         console.log("Username from localStorage:", username);
 
         //let bookNowBtn = document.getElementById("bookNowBtn");
@@ -223,7 +217,6 @@ applyTheme();
             text: "Please login before booking a trip",
             confirmButtonText: "Go to Login"
         });
-
         window.location.href = "login.html";  
         return;
     }
@@ -244,16 +237,16 @@ applyTheme();
                     const { value: userDetails } = await Swal.fire({
                         title: 'Traveler Details',
                         html: `
-      <input id="name" class="swal2-input" placeholder="Name">
-      <input id="phone" class="swal2-input" placeholder="Phone">
-      <input id="email" type="email"
-class="swal2-input" placeholder="Email">
-      <input id="count" type="number" min="1" value="1"
-        class="swal2-input" placeholder="Traveler Count">
-         <input id="travelDate" type="date"
-        class="swal2-input">
-      <input id="contact" class="swal2-input" placeholder=" Emergency Contact">
-    `,
+                                <input id="name" class="swal2-input" placeholder="Name">
+                                <input id="phone" class="swal2-input" placeholder="Phone">
+                                <input id="email" type="email"
+                            class="swal2-input" placeholder="Email">
+                                <input id="count" type="number" min="1" value="1"
+                                    class="swal2-input" placeholder="Traveler Count">
+                                    <input id="travelDate" type="date"
+                                    class="swal2-input">
+                                <input id="contact" class="swal2-input" placeholder=" Emergency Contact">
+                                `,
                         showCancelButton: true,
                         preConfirm: () => ({
                             name: document.getElementById('name').value,
@@ -277,7 +270,7 @@ class="swal2-input" placeholder="Email">
                         name: destinationName + " package",
                         description: "sample payment",
                         handler: async function (response) {
-                               let notificationCount = Number(localStorage.getItem("notificationCount")) || 0;
+                            let notificationCount = Number(localStorage.getItem("notificationCount")) || 0;
                             notificationCount++;
                             localStorage.setItem("destination",destinationName);
                             localStorage.setItem("notificationCount", notificationCount);
@@ -291,21 +284,19 @@ class="swal2-input" placeholder="Email">
                                 timer: 10000,
                                 redirect: false,
                                 callback_url: undefined,
-
                             });
-                         
-                                    try {
-                                       await axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`, {
-                                        booked: true,
-                                        destination: destinationName,
-                                        bookingDate: new Date().toLocaleString(),
-                                        travelerName: userDetails.name,
-                                        phone: userDetails.phone,
-                                        travelers: userDetails.count,
-                                        totalAmount: totalAmount,
-                                        TravelDate: userDetails.travelDate,
-                                        contact: userDetails.contact,
-                                    }).catch(err => console.log("PATCH failed:", err));
+                            try {
+                                    await axios.patch(`https://tourism-api-5tpw.onrender.com/signup/${user.id}`, {
+                                            booked: true,
+                                            destination: destinationName,
+                                            bookingDate: new Date().toLocaleString(),
+                                            travelerName: userDetails.name,
+                                            phone: userDetails.phone,
+                                            travelers: userDetails.count,
+                                            totalAmount: totalAmount,
+                                            TravelDate: userDetails.travelDate,
+                                            contact: userDetails.contact,
+                                        }).catch(err => console.log("PATCH failed:", err));
 
                                    await axios.post("https://tourism-api-5tpw.onrender.com/booked", {
                                         username,
@@ -314,23 +305,22 @@ class="swal2-input" placeholder="Email">
                                         TravelDate: userDetails.travelDate,
                                         Date: new Date().toLocaleDateString()
                                     }).catch(err => console.log("POST failed:", err));
-                                console.log("triggered ");
-                              await emailjs.send(
-                                "service_tkfm5f8",
-                                "template_sc610kx",
-                                
-                                {
-                                    customer_name: userDetails.name,
-                                    customer_email: userDetails.email,
-                                    booking_id: "RT" + Date.now(),
-                                    destination: destinationName,
-                                    travel_date: userDetails.travelDate,
-                                    traveler_count: userDetails.count,
-                                    package_name: destinationName + " Package",
-                                    amount: totalAmount
-                                },
-                                "QKZJDiVCtHhO_b0py"
-                                );
+                                       console.log("triggered ");
+                                    await emailjs.send(
+                                        "service_tkfm5f8",
+                                        "template_sc610kx",
+                                    {
+                                        customer_name: userDetails.name,
+                                        customer_email: userDetails.email,
+                                        booking_id: "RT" + Date.now(),
+                                        destination: destinationName,
+                                        travel_date: userDetails.travelDate,
+                                        traveler_count: userDetails.count,
+                                        package_name: destinationName + " Package",
+                                        amount: totalAmount
+                                    },
+                                         "QKZJDiVCtHhO_b0py"
+                                    );
 
                             }
                             catch (e) {
@@ -359,5 +349,4 @@ class="swal2-input" placeholder="Email">
 
     </script>
 </body>
-
 </html>
