@@ -262,8 +262,12 @@ let count =localStorage.getItem("notificationCount") || 0;
 
     Swal.fire({
         title: "Your Booking",
-        html: `📍 <b>${destination}</b>`,
-         text: "Destination Sucessfully check mail for the information",
+        html: `
+        📍 <b>${destination}</b><br><br>
+        Destination Successfully Booked.<br>
+        Check your email for booking information.
+    `,
+       
         icon: "success"
     });
     localStorage.setItem("notificationCount", 0);
