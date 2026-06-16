@@ -3,73 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Header</title>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
 </head>
 <body>
-     <header id="header">
-        <nav class="flex items-center justify-between p-3 bg-gradient-to-r from-green-600 to-green-900 text-white text-white">
-            <div class="flex  items-center gap-3">
-            <img src="/assets/logo2.png" class="h-15 w-auto object-contain" alt="Rythm Tourism Logo">
-            <h4 class="text-xl font-bold tracking-widest " style="font-family: 'Montserrat', sans-serif;">Rythm Tourism</h4></div>
-            <div class="flex items-center gap-12 text-lg font-serif" >
-           <a class=" px-2 py-1 rounded-lg"href="/">Home</a>
-           <a  href="/destinations.html">Destinations</a>
-           <a href="#service">Services</a>
-           <a href="#contact">Contact</a>
-           <button id="btn" class="bg-green-500 hover:bg-green-600  transition-all duration-300 text-white font-bold py-2 px-4 rounded">
-            Book Now
-           </button>
-           <span id="start" class=" bg-[#ed6618] hover:bg-green-600 text-white cursor-pointer hover:bg-orange-800 transition-all duration-300 py-2 px-2 rounded-2xl">
-             Get started ! </span>
-           <div id="userSection"></div>
-           </div>
+    
+<header id="header">
+        <nav
+            class="theme-nav flex items-center justify-between p-2 bg-gradient-to-r from-green-600 to-green-900 text-white text-white">
+            <div class="flex  items-center ">
+                <img src="../assets/logo2.png" class="h-10 md:h-15 w-auto object-contain" alt="Rythm Tourism Logo">
+                <h4 class="text-sm md:text-xl font-bold tracking-widest" style="font-family: 'Montserrat', sans-serif;">Rythm
+                    Tourism</h4>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-sm tracking-normal "
+                style="font-family: 'Montserrat', sans-serif">
+                <a  href="../index.html" class=" px-2 py-1 rounded-lg curosor-pointer">Home</a>
+                <a href="../Pages/destinations.html">Destinations</a>
+                <a href="../Pages/Services.html">Services</a>
+                <a href="#contact">Contact</a>
+                <button id="themeToggle"
+class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-pointer">
+    <i class="fa-solid fa-moon"></i>
+</button>
+                <button id="btn" class="flex items-center gap-2 bg-green-600 hover:bg-green-700 
+        transition-all duration-300 text-white font-semibold 
+        py-2 px-5 rounded-xl shadow-md hover:shadow-lg cursor-pointer">
+
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Book Now
+                </button>
+                <span id="start" class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 
+        text-white cursor-pointer transition-all duration-300 
+        py-2 px-5 rounded-xl shadow-md hover:shadow-lg font-semibold">
+
+                    <i class="fa-solid fa-compass"></i>
+                    Get Started
+                </span>
+                <div id="userSection"></div>
+            </div>
+           
+<button id="menuToggle" class="md:hidden text-white text-2xl px-3 cursor-pointer">
+    <i class="fa-solid fa-bars"></i>
+</button>
         </nav>
+        <div id="mobileMenu" class="hidden flex-col bg-green-800 text-white px-6 py-4 gap-4 text-sm md:hidden">
+    <a href="index.html">Home</a>
+    <a href="Pages/destinations.html">Destinations</a>
+    <a href="Pages/Services.html">Services</a>
+    <a href="#contact">Contact</a>
+    <button onclick="window.location.href='Pages/signup.html'"
+        class="bg-green-600 text-white py-2 px-4 rounded-xl w-fit">
+        <i class="fa-solid fa-plane-departure"></i> Book Now
+    </button>
+    <button onclick="window.location.href='Pages/login.html'"
+        class="bg-orange-500 text-white py-2 px-4 rounded-xl w-fit">
+        <i class="fa-solid fa-compass"></i> Get Started
+    </button>
+</div>
     </header>
-    
-<script>
-    let btn=document.getElementById("btn");
-    let started=document.getElementById("start")
-let username=localStorage.getItem("username");
-const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-if(btn){    
-btn.addEventListener("click",()=>{
-    window.location.href="signup.html";
-})
-}
-if(isLoggedIn){
-    btn.style.display="none";
-    started.style.display="none";
-}
-started.addEventListener("click",()=>
-{
-    window.location.href="login.html"
-})
-
-const userSection = document.getElementById("userSection");
-if (isLoggedIn) {
-    userSection.innerHTML = `
-        <span id="profilebtn" class="flex items-center gap-3 px-4 py-2">
-            <i class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
-            <span class="text-sm cursor-pointer">${username}</span>`
-
-const profilebutton=document.getElementById("profilebtn");
- 
-
- profilebutton.addEventListener("click",(e)=>
-{
-    const logoutbtn=document.createElement("div");
-    logoutbtn.innerHTML=`<button class="absolute top-15 text-sm bg-white text-red-500 hover:bg-gray-100 cursor-pointer rounded-lg p-2 z-10 font-sans right-8">log out</button>`;
-    userSection.append(logoutbtn);
-    logoutbtn.addEventListener("click", () => {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("username");
-        window.location.href = "index.html";
-    });
-})
-    
-} 
-
-
-</script>
 </body>
 </html>
+

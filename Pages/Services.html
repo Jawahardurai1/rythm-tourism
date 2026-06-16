@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-gray-50">
-    <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-4 flex justify-between items-center shadow-lg">
+    <!-- <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-4 flex justify-between items-center shadow-lg">
 
         <h1 class="text-2xl font-bold flex items-center gap-2">
             <i class="fa-solid fa-earth-asia"></i>
@@ -24,7 +24,8 @@
             class="bg-orange-500 hover:bg-orange-700 px-4 py-2 rounded-xl transition duration-300">
             Back
         </button>
-    </nav>
+    </nav> -->
+     <div id="header-container"></div>
     <section class="text-center py-16 px-6">
         <h2 class="theme-title text-5xl font-bold text-gray-800 mb-4 fade">
             Explore Our Premium Services
@@ -138,15 +139,22 @@
         </h2>
 
         <button
-           id="btn" class="bg-orange-500 hover:bg-orange-700 text-white px-8 py-3 rounded-xl text-lg transition duration-300">
+           id="tbtn" class="bg-orange-500 hover:bg-orange-700 text-white px-8 py-3 rounded-xl text-lg transition duration-300">
             Book Your Trip
         </button>
     </section>
     <footer class="bg-gray-900 text-white text-center p-4">
         © 2026 Rythm Tourism | Travel Beyond Limits
     </footer>
+    <script src="../Layout/Header.js"></script>
     <script>
-const tripbtn=document.getElementById("btn");
+        fetch("../Layout/Header.html")
+.then(res => res.text())
+.then(data => {
+   document.getElementById("header-container").innerHTML = data;
+   setupHeader();
+})
+const tripbtn=document.getElementById("tbtn");
 
 tripbtn.addEventListener("click",()=>
 

@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-    <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-2 flex justify-between items-center shadow-lg">
+    <!-- <nav class="theme-nav bg-gradient-to-r from-green-600 to-green-900 text-white p-2 flex justify-between items-center shadow-lg">
 
         <h1 class="text-2xl font-bold flex items-center gap-2">
             <i class="fa-solid fa-earth-asia"></i>
@@ -34,7 +34,8 @@
             class="bg-orange-500 hover:bg-orange-700 px-4 py-2 rounded-xl transition duration-300">
             Back
         </button>
-    </nav>
+    </nav> -->
+    <div id="header-container" class="relative z-50"></div>
      <video id="bg-video" autoplay muted loop playsinline>
         <source src="../assets/clip.mp4" type="video/mp4">
     </video>
@@ -58,7 +59,14 @@
                     Don't have an account? <a href="signup.html" class="text-green-500 hover:text-green-600">Sign up</a></p>
             </form>
         </div>
+         <script src="../Layout/Header.js"></script>
         <script>
+             fetch("../Layout/Header.html")
+.then(res => res.text())
+.then(data => {
+   document.getElementById("header-container").innerHTML = data;
+   setupHeader();
+})
             let logindataform=document.getElementById("logindataform");
             
             logindataform.addEventListener("submit",async (e)=>{
