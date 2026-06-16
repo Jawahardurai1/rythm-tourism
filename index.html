@@ -68,7 +68,7 @@ class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-poin
     </button>
 </div>
     </header>
-    
+ <div id="slider-container"></div>
     <main class="flex flex-col items-center rounded  h-64 md:h-130"
         style="background-image: url('assets/img1.jpg'); background-size: cover; background-position: center; opacity: 0.9;">
         <div class="pt-10 md:pt-18 px-4 text-center text-[#166927]">
@@ -195,7 +195,15 @@ class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-poin
         </div>
     </footer>
     <script src="assets/theme.js"></script>
+    <script src="Layout/Slider.js"></script>
     <script>
+        fetch("Layout/slider.html")
+.then(res => res.text())
+.then(data => {
+      document.getElementById("slider-container").innerHTML = data;
+      sliderbaracess();
+});
+  
         let btn = document.getElementById("btn");
         let started = document.getElementById("start")
         let username = localStorage.getItem("username");
@@ -228,10 +236,16 @@ class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-poin
     </span>
 </div>
  <p class="leading-10"> |</p>
-<i class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
+<i id="userIcon" class="fa-solid fa-circle-user text-2xl cursor-pointer"></i> 
 <span id="profilebtn" class="text-sm cursor-pointer">${username}</span>
 
 </span>`
+const userIcon = document.getElementById("userIcon");
+
+userIcon.addEventListener("click", () => {
+    document.getElementById("sidebar")
+.classList.remove("translate-x-full");
+});
 
             const profilebutton = document.getElementById("profilebtn");
 
@@ -240,11 +254,7 @@ class="bg-gray-700 hover:bg-gray-900 text-white px-3 py-2 rounded-xl cursor-poin
                 const logoutbtn = document.createElement("div");
                 logoutbtn.innerHTML = `<button class="absolute top-15 text-sm bg-white cursor-pointer text-red-500 hover:bg-gray-100 rounded-lg p-2 z-10 font-sans right-8">log out</button>`;
                 userSection.append(logoutbtn);
-                logoutbtn.addEventListener("click", () => {
-                    localStorage.removeItem("isLoggedIn");
-                    localStorage.removeItem("username");
-                    window.location.href = "index.html";
-                });
+               
             })
 
         }
