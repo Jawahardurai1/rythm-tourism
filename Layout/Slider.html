@@ -12,12 +12,12 @@
     <script src="assets/theme.js"></script>
 </head>
 <body>
-<div id="sidebar" class="absolute top-19 right-0 h-full w-72 
-bg-gradient-to-r from-green-600 to-green-900 text-white 
-shadow-2xl transform translate-x-full 
-transition-transform duration-300 z-40 rounded">
-    <div class="flex">
-    <div class="p-6 border-b">
+<div id="sidebar" class="fixed top-19 right-0 h-full w-72 
+bg-gradient-to-b from-green-600 to-green-900 text-white 
+shadow-2xl transform translate-x-full
+transition-transform duration-300 z-50">
+    <div class="flex items-center justify-between p-5 border-b border-green-500">
+    <div>
         <h1 class="text-2xl font-bold ">Rythm Tourism</h1>
         <p class="text-sm ">Travel Beyond Limits</p>
     </div>
@@ -29,36 +29,34 @@ transition-transform duration-300 z-40 rounded">
     <nav class="flex flex-col p-4 gap-3">
        
         <a href="destinations.html"
-            class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-green-500 transition text-white">
             <i class="fa-solid fa-location-dot"></i>
             Explore Places
         </a>
         <a href="booking.html"
-            class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-green-500 transition text-white">
             <i class="fa-solid fa-ticket"></i>
             My Bookings
         </a>
         <a href="history.html"
-            class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-green-500 transition text-white">
             <i class="fa-solid fa-clock-rotate-left"></i>
             Trip History
         </a>
         
         <a href="../Pages/contact.html"
-            class="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-green-500 transition text-white">
             <i class="fa-solid fa-phone"></i>
             Contact Us
         </a>
     </nav>
 
-   <div class="mt-20 w-full border-t p-4">
+   <div class="absolute bottom-17 w-full border-t border-green-500 p-4">
     <div class="flex items-center justify-between">
-
-        <!-- User Info -->
         <div class="flex items-center gap-3">
             
-            <div class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full">
-                <i class="fa-solid fa-user text-lg text-gray-700"></i>
+            <div class="w-10 h-10 flex items-center justify-center bg-green-500 rounded-full">
+    <i class="fa-solid fa-user text-lg text-white"></i>
             </div>
 
             <div class="flex flex-col leading-tight">
@@ -66,9 +64,7 @@ transition-transform duration-300 z-40 rounded">
                 <span class="text-xs ">Traveller Account</span>
             </div>
         </div>
-
-        <!-- Logout -->
-        <button id="logoutbtn" class="text-red-500 hover:text-red-700 text-lg">
+       <button id="logoutbtn" class="text-red-300 hover:text-red-500 text-lg transition">
             <i class="fa-solid fa-right-from-bracket"></i>
         </button>
 
