@@ -3,7 +3,12 @@ function sliderbaracess() {
     const username = localStorage.getItem("username");
     const sidebar = document.getElementById("sidebar");
     const closingbar = document.getElementById("closingbar");
-    document.getElementById("name").textContent = username;
+  const nameEl = document.getElementById("name");
+    const username = localStorage.getItem("username");
+
+    if (nameEl) {
+        nameEl.textContent = username;
+    }
 
  if (closingbar && sidebar) {   
     closingbar.addEventListener("click", () => {

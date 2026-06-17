@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
- fetch("/layout/Slider.html")
+ fetch("../Layout/Slider.html")
 .then(res => res.text())
 .then(data => {
       document.getElementById("slide-container").innerHTML = data;
@@ -12,7 +12,10 @@ function sliderbaracess() {
     const username = localStorage.getItem("username");
     const sidebar = document.getElementById("sidebar");
     const closingbar = document.getElementById("closingbar");
-    document.getElementById("name").textContent = username;
+    const nameEl = document.getElementById("name");
+if (nameEl) {
+   nameEl.textContent = username;
+}document.getElementById("name").textContent = username;
 console.log(closingbar,sidebar)
  if (closingbar && sidebar) {   
     closingbar.addEventListener("click", () => {
