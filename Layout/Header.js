@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
- fetch("/layout/slider.html")
+ fetch("/layout/Slider.html")
 .then(res => res.text())
 .then(data => {
       document.getElementById("slide-container").innerHTML = data;
